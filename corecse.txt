@@ -1,0 +1,158 @@
+Question 1: What is ARP ?Explain in brief ?
+	API	Stands for "Address Resolution Protocol." ARP is a protocol used for mapping an IPaddress to a computer connected to a local network LAN. Since each computer has a unique physical address called a MAC address, the ARP converts the IP address to the MAC address. This ensures each computer has a unique network identification.
+
+The Address Resolution Protocol is used when information sent to a network arrives at the gateway, which serves as the entrance point to the network. The gateway uses the ARP to locate the MAC address of the computer based on the IP address the data is being sent to. The ARP typically looks up this information in a table called the "ARP cache." If the address is found, the information is relayed to the gateway, which will send the incoming data to the appropriate machine. It may also convert the data to the correct network format if necessary.
+
+If the address is not found, the ARP broadcasts a "request packet" to other machines on the network to see if the IP address belongs to a machine not listed in the ARP cache. If a valid system is located, the information will be relayed to the gateway and the ARP cache will be updated with the new information. By updating the ARP cache, future requests for that IP address will be much quicker. While this may seem like a complex process, it usually takes only a fraction of a second to complete. If only it was just as easy to find old receipts when you need them.
+
+
+
+Question 2: What is NAT ? Explain in brief?
+NATStands for "Network Address Translation." NAT translates the IP addresses of computers in a local network to a single IP address. This address is often used by the router that connects the computers to the Internet. The router can be connected to a DSL modem, cable modem, T1 line, or even a dial-up modem. When other computers on the Internet attempt to access computers within the local network, they only see the IP address of the router. This adds an extra level of security, since the router can be configured as a firewall, only allowing authorized systems to access the computers within the network.
+
+Once a system from outside the network has been allowed to access a computer within the network, the IP address is then translated from the router's address to the computer's unique address. The address is found in a "NAT table" that defines the internal IP addresses of computers on the network. The NAT table also defines the global address seen by computers outside the network. Even though each computer within the local network has a specific IP address, external systems can only see one IP address when connecting to any of the computers within the network.
+
+To simplify, network address translation makes computers outside the local area network (LAN) see only one IP address, while computers within the network can see each system's unique address. While this aids in network security, it also limits the number of IP addresses needed by companies and organizations. Using NAT, even large companies with thousands of computers can use a single IP address for connecting to the Internet. Now that's efficient.
+
+Question 3: What is Private IP Address ?
+
+A private IP address is a non-Internet facing IP address on an internal network. Private IP addresses are provided by network devices, such as routers, using network address translation (NAT).
+
+Originally it was thought that IPv4's 32-bit IP addressing system -- yielding 4,294,967,296 theoretical IP addresses -- would be adequate for all purposes. However, as the Internet grew it became apparent that something had to fill the gap between IPv4 and a future system (which would turn out to be IPv6) that would take time to develop and implement. Private IP addressing and NAT fill that gap with the private IP range.
+
+Private IP addressing uses addresses from the class C range reserved for NAT (192.168.0.0 – 192.168.255.255). Private addresses can be assigned by the router using DHCP or be manually set, after which those addresses can communicate with one another through the router.
+
+Private IP addresses can only be guaranteed unique to an internal network, excepting conflicts. If a directly connected computer does not have a static IP address assigned, even assigning a private IP address manually will not enable communication.
+
+Private IP addresses cannot be directly contacted over the Internet as a computer with a public IP address can. This situation affords an extra layer of security: A network NAT device communicates with the Internet using its public IP address from an ISP and checks to see if any incoming data was requested by one of the private IP-assigned computers. If so, it is directed to that computer; if not it is typically discarded.  
+
+Another benefit of using NAT, for those who do tend to have incoming requests -- like websites, file and game servers – is the ability to quickly switch servers in the event of a crash, as the incoming traffic can all be forwarded to a back-up server very easily.
+
+
+Question 4: Explain conditions for Deadlock/ ?
+
+Deadlock is a situation which involves the interaction of more than one resources andprocesses with each other.
+
+We can visualise the occurrence of deadlock as a situation where there are two people on a staircase. One is ascending the staircase while the other is descending. The staircase is so narrow that it can only fit one person at a time. As a result, one has to retreat while the others moves on and uses the staircase. Once that person is finished, the other one can use that staircase. But here, none of the people is willing to retreat and waits for the each other to retreat. None of them is able to use the staircase. The people here is the process and the staircase is the resource.
+
+When a process requests for the resource that is been held another process which needs another resource to continue, but is been held by the first process, then it is called a deadlock.
+
+
+
+There are 4 conditions necessary for the occurrence of a deadlock. 
+
+
+•	Mutual Exclusion:
+When two people meet in the landings, they can’t just walk through because there is space only for one person. This condition to allow only one person (or process) to use the step between them (or the resource) is the first condition necessary for the occurrence of the deadlock.
+•	Hold and Wait:
+When the 2 people refuses to retreat and hold their grounds, it is called holding. This is the next necessary condition for the the deadlock.
+•	No Preemption:
+For resolving the deadlock one can simply cancel one of the processes for other to continue. But Operating System doesn’t do so. It allocates the resources to the processors for as much time needed until the task is completed. Hence, there is no temporary reallocation of the resources. It is third condition for deadlock.
+•	Circular Wait:
+When the two people refuses to retreat and wait for each other to retreat, so that they can complete their task, it is called circular wait. It is the last condition for the deadlock to occur.
+
+Question 5: Explain Swap Memory?
+Memory swapping is a computer technology that enables an operating system to provide more memory to a running application or process than is available in physical random access memory (RAM). When the physical system memory is exhausted, the operating system can opt to make use of memory swapping techniques to get additional memory.
+
+Memory swapping is among the multiple techniques for memory management in modern systems. Physical memory alone is sometimes not sufficient, which is why there are different ways of augmenting RAM in a system with these additional options.
+
+Question 6: For the given cache of size 3 and below inputs  tell the cache HIT rate . 
+5 4 3 2 1 3 5 6 7 8 10 15 
+Explain each step briefly?
+
+Answer: we will update hit or miss after incoming element.
+for the first 3 elements we have 3 miss
+cache = [5,4,3]
+hit = 0
+miss = 3
+when the next element comes in cache, and it is a miss, it gets added to right and one element gets removed from left
+cache = [4,3,2]
+hit = 0
+miss = 4
+next element 1 enters from right and 4 got removed from left.
+cache = [3,2,1]
+hit = 0 
+miss = 5
+now 3 enters and it is a match, so 3 will come to the right
+cache = [2,1,3]
+hit = 1
+miss = 5
+there is no further hit found in the given data, so the final result is
+cache = [8,10,15]
+hit = 1
+miss = 11
+so the hit rate = (total hit/total request) X 100
+		       = (1/12) X 100
+		       = 8.3 %
+Hit rate = 8.3 %
+
+Question 7: Explain Consistent Hashing in brief.?
+In computer science, consistent hashing[1][2] is a special kind of hashing such that when a hash table is resized, only keys need to be remapped on average where is the number of keys and  is the number of slots. In contrast, in most traditional hash tables, a change in the number of array slots causes nearly all keys to be remapped because the mapping between the keys and the slots is defined by a modular operation. Consistent hashing is a particular case of rendezvous hashing, which has a conceptually simpler algorithm, and was first described in 1996. Consistent hashing first appeared in 1997, and uses a different algorithm.[1]
+
+
+Questions 8: Explain what happens when you type www.attainu.com in the web browser.?.
+
+When you type “www.attainu.com” into your browser the first thing that happens is a Domain Name Server (DNS) matches “wsvincent.com” to an IP address. Then the browser sends an HTTP request to the server and the server sends back an HTTP response. The browser begins rendering the HTML on the page while also requesting any additional resources such as CSS, JavaScript, images, etc. Each subsequent request completes a request/response cycle and is rendered in turn by the browser. Then once the page is loaded some sites will make further asynchronous requests.
+
+•	You enter a URL into a web browser
+•	The browser looks up the IP address for the domain name via DNS
+•	The browser sends a HTTP request to the server
+•	The server sends back a HTTP response
+•	The browser begins rendering the HTML
+•	The browser sends requests for additional objects embedded in HTML (images, css, JavaScript) and repeats steps 3-5.
+•	Once the page is loaded, the browser sends further async requests as needed.
+
+
+
+Question 9: What is Context Switching ? Explain in brief.  
+
+Context Switching is the switching of CPU from one process to another process. Context switching means storing the process state so that we can reload the process when needed, and the execution of the process can be resumed from the same point later. Context Switching is the characteristic of a multitasking operating system. In context switching, one CPU can be shared among several processes. In other words, context switching is the mechanism that permits a single CPU to handle several threads or processes without the need for extra processors.
+
+In context switching, processes are switched so quickly that the user gets the myth that all processes are running simultaneously.
+
+But in the process of context switching, there are lots of steps that we need to follow. We cannot directly change or switch the process from running state to ready state. It is mandatory to save the context of that process. If we do not save the context of the process, while again executing the process, we need to start its execution from the beginning. In reality, the process continues from that state, where the CPU left the process in its previous execution. So, it is required to save the context of the process before placing some other process in the running state. Context means data of CPU registers and program counter anytime.
+
+Context Switching Triggers
+
+The context switching triggers are:
+Interrupts: – We require context switching if there is an interruption of CPU to get data from the disk read.
+
+Multitasking: – If the CPU has to move processes in and out of memory so that it can run more than one operation.
+
+Kernel/user switch: – We use kernel/user switch if we require switching between the user mode to the kernel mode.
+
+Question 10: Explain all the layers TCP/IP model with example.
+
+Below we have discussed the 4 layers that form the TCP/IP reference model:
+•	Host-to-network Layer
+•	Internet layer
+•	Transport Layer
+•	Application Layer
+
+
+Layer 1: Host-to-network Layer
+Lowest layer of the all.
+Protocol is used to connect to the host, so that the packets can be sent over it.
+Varies from host to host and network to network.
+
+Layer 2: Internet layer
+Selection of a packet switching network which is based on a connectionless internetwork layer is called a internet layer.
+It is the layer which holds the whole architecture together.
+It helps the packet to travel independently to the destination.
+Order in which packets are received is different from the way they are sent.
+IP (Internet Protocol) is used in this layer.
+The various functions performed by the Internet Layer are:
+Delivering IP packets
+Performing routing
+Avoiding congestion
+
+Layer 3: Transport Layer
+It decides if data transmission should be on parallel path or single path.
+Functions such as multiplexing, segmenting or splitting on the data is done by transport layer.
+The applications can read and write to the transport layer.
+Transport layer adds header information to the data.
+Transport layer breaks the message (data) into small units so that they are handled more efficiently by the network layer.
+Transport layer also arrange the packets to be sent, in sequence.
+
+Layer 4: Application Layer
+The TCP/IP specifications described a lot of applications that were at the top of the protocol stack. Some of them were TELNET, FTP, SMTP, DNS 
